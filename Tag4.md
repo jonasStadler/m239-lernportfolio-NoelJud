@@ -14,9 +14,28 @@ Ich hatte keine Probleme bei der praktischen Umsetzung, jedoch weiss ich nicht g
 ### Jeder Lernende kennt die Optionen Ports, Volumes, Images, Builds, Networks und kann sie in eigenen Worten beschreiben
 Mit der Option Ports kann bestummen werden auf welchen Ports der Docker-Container gehostet werden soll. Ein Volume ist eine Art Ordner der Ausserhalb des Containers lebt, es ist auf dem Host gemountet und kann mit den Daten des Containers interagieren. Ein Docker Image ist ein File das genutzt wird um den Code eines Docker-Containers aufzuführen. Die Build-Option wird genutzt um einen automatisierten Build zu generieren, die verschiedene Command-Lines auszuführen. Mit der Networks-Option kan die Kommunikation zwischen Containern ermöglicht werden ohne spezifische Ports festlegen zu müssen.
  
-### Jeder Lernende kann einfache Docker-Compose-Projekte nach Anleitung zusammen stellen
-  
+### Jeder Lernende kann einfache Docker-Compose-Projekte nach Anleitung zusammenstellen
+Um ein Docker-Compose-Projekt zu erstellen muss zuerst ein Ordner für das Projekt erstellt werden. In dem Ordner muss dann ein YAML-File erstellt werden in dem dann die benötigten Dienste festgelegt werden. Dann muss eine Portweiterleitung definiert werden und eine Kommunikation zwischen den Containern ermöglicht werden. Anschliessend muss ein bestimmtes Verzeichnissystem im Projekt angelegt werden. Die zuvor angelegten Verzeichnisse müssen dann in lokale Ordner gemountet werden. Die Container apache und mysql müssen dann mit vorgegebenen Dateien konfiguriert werden. Als nächster Schritt muss für jeden Container ein Dockerfile erstellt werden. Zuletzt muss dann die Umgebung realisiert werden.
 
 ### Jeder Lernende kann bestehende Docker-Compose-Projekte interpretieren und beschreiben     
+```yaml
+version: '3'
+services:
+api:
+build: .
+image: tunix/docker-compose-demo
+ports:
+- "8080"
+links:
+- db:demodb
+command: ["/source/wait-for-it.sh","demodb:3306","--","java","-jar",
+db:
+image: mysql
+environment:
+- MYSQL_ALLOW_EMPTY_PASSWORD=true
+- MYSQL_DATABASE=demo
+- MYSQL_USER=user
+- MYSQL_PASSWORD=test
+```
 
 ### Jeder Lernende kann die Docker-Compose-Befehle anwenden um Projekte zu starten/stoppen
