@@ -15,6 +15,7 @@ Ich hatte etwas Probleme zu verstehen wie genau die Technik hinter Docker-Compos
 YAML steht für "Yet Another Markup Language" und ist eine Markup-Language wurde ursprünglich angelehnt an XML. YAML wurde entwickelt um jede beliebige Datenstruktur mit assoziativen Listen, Arrays und Einzelwerten dastellen zu können. Ein grosser Vorteil von YAML gegenüber XML ist, dass es durch sein einfachers Konzept leichter von Menschen gelesen werden kann und eine stark vereinfachte weiterverarbeitung der Daten ermöglicht.
 
 ### Jeder Lernende kann beschreiben was ein Docker-Compose-File ist
+Das Docker-Compose-File bietet eine Möglichkeit alle dependencies der Anwendung (Datenbanken, Cache usw.) zu dokumentieren und zu konfigurieren. Mit Compose können ein oder mehrere Container mit einem einzigen Befehl erstellt oder gestartet werden.
 
 ### Jeder Lernende kann beschreiben was man mit Docker-Compose-Projekten machen kann
-    
+Das Prinzip hinter Docker-Compose ist, das man nicht nur einzelne Container sondern ganze Infrastrukturen miteinander starten kann. Mit Docker-Compose können mehrere Container miteinander Vernezt werden und Docker-Infrastrukturen automatisiert werden.
