@@ -19,23 +19,33 @@ Um ein Docker-Compose-Projekt zu erstellen muss zuerst ein Ordner für das Proje
 
 ### Jeder Lernende kann bestehende Docker-Compose-Projekte interpretieren und beschreiben     
 ```yaml
+# Zuerst wird die Version gekennzeichnet
 version: '3'
+
+#Die Services "api" und "db" werden definiert
 services:
-api:
-build: .
-image: tunix/docker-compose-demo
-ports:
-- "8080"
-links:
-- db:demodb
-command: ["/source/wait-for-it.sh","demodb:3306","--","java","-jar",
+ api:
+  build: .
+  # Der Pfad des Images für diesen Service wird festgelegt
+  image: tunix/docker-compose-demo
+  # Der Port des Services wird auf 8080 festgelegt
+  ports:
+   - "8080"
+   # Es wird auf den DB-Service verwiesen
+  links:
+   - db:demodb
+  command: ["/source/wait-for-it.sh","demodb:3306","--","java","-jar",
+# Der DB-Service wird definiert
 db:
-image: mysql
-environment:
-- MYSQL_ALLOW_EMPTY_PASSWORD=true
-- MYSQL_DATABASE=demo
-- MYSQL_USER=user
-- MYSQL_PASSWORD=test
+ # Verweis auf das Image des Service
+ image: mysql
+ # Die Datenbankstruktur wir definiert
+ environment:
+  - MYSQL_ALLOW_EMPTY_PASSWORD=true
+  - MYSQL_DATABASE=demo
+  - MYSQL_USER=user
+  - MYSQL_PASSWORD=test
 ```
 
 ### Jeder Lernende kann die Docker-Compose-Befehle anwenden um Projekte zu starten/stoppen
+Um alle Docker-Container eines Docker-Compose-Projektes zu starten muss der Befehl "sudo docker-compose up -d". Wenn man alle Docker-Container wieder stoppen will muss man den Befehl "sudo docker-compose stop" eingeben.
