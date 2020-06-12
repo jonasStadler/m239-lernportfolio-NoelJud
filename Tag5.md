@@ -25,8 +25,10 @@ Zuerst müssen die benötigten Apache-Proxy-Module installiert werden. Wir brauc
 * **mod_headers** ermöglicht die Manipulation von HTTP-Kopfdaten.
 * **mod_deflate** implementiert eine Kompressionsfunktion.
 
-### Jeder Lernende kann Reverse Proxies für eigene Services einsetzen und entsprechend konfigurieren
+Die benötigten Zusatzmodule müssen nach dem Download des Moduls noch aktiviert werden. In unserem Fall müssen dann die Zusatzmodule proxy und proxy_http aktiviert werden. Danach muss der HTTP-Server neugestartet werden.
 
+### Jeder Lernende kann Reverse Proxies für eigene Services einsetzen und entsprechend konfigurieren
+Nach der Installation muss der Reverse-Proxy konfiguriert werden. Dazu sollte die Datei **/etc/apache2/sites-enabled/000-default.conf** deaktiviert werden und eine eigene Virtual-Host-Datei erstellt werden. In dieser müssen dann die vorgeschriebenen Konfigurationen festgelegt werden.
 
 ### Jeder Lernende kann die Verwendung von SSL im Umfeld von Internet Servern in eigenen Worten erklären
 
